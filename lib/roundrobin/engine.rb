@@ -1,3 +1,5 @@
+require "roundrobin/version"
+
 module Roundrobin
 
   class Engine < ::Rails::Engine
