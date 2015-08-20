@@ -1,3 +1,4 @@
+require "roundrobin/engine"
 require "roundrobin/version"
 
 module Roundrobin
