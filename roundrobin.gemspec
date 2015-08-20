@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Roundrobin::VERSION
   spec.authors       = ["Gustavo Garcia", "Sergio Márquez"]
   spec.email         = ["smarquezs@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.summary       = "Iterates over an array with a persisted Round-Robin algorithm"
+  spec.description   = "Set the array in a yml file and then just ask for the next item"
+  spec.homepage      = "http://github.com/pnet/roundrobin"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
