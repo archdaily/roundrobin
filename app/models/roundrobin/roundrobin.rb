@@ -1,13 +1,24 @@
 class Roundrobin < ActiveRecord::Base
   require 'yaml'
+  require 'digest/sha1'
   attr_accessor @candidates
 
-  def candidates
-    return @candidates unless @candidates.nil?
-    @candidates = YAML.load_file("lala.yml")
+  def next
+    return nil unless @candidates.is_a?(Array)
+    if iterator.nil?
+      self.iterator = 0
+    else
+      self.iterator += 1
+      self.iterator = 0 if iterator >= @candidates.length
+    end
+    self.save
+    @candidates[self.iterator]
   end
 
-  def next
-    
+  def self.next(candidates)
+    @candidates = candidates
+    identifier = Digest::SHA1.hexdigest candidates.to_s
+    find_or_initialize_by(identifier: identifier).next
   end
+
 end
