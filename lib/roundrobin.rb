@@ -4,7 +4,7 @@ require 'redis'
 
 class Roundrobin
 
-  def initializer(redis_conn = nil)
+  def initialize(redis_conn = nil)
     @redis = redis_conn.nil? ? Redis.new : Redis.new(url: redis_conn)
   end
 
