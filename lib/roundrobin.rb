@@ -1,5 +1,6 @@
 require "roundrobin/version"
 require 'digest/sha1'
+require 'redis'
 
 class Roundrobin
 
