@@ -6,34 +6,47 @@ Add a Round-Robin based process to your flow.
 
 Add this line to your application's Gemfile:
 
-```ruby
+```rb
 gem 'roundrobin'
 ```
 
 And then execute:
 
-    $ bundle
+```
+$ bundle
+```
 
 Or install it yourself as:
 
-    $ gem install roundrobin
+```
+$ gem install roundrobin
+```
 
 ## Usage
 
+Initialize your Round-Robin instance
 ```rb
->> Roundrobin.next(%w(foo bar))
+>> rr = Roundrobin.new
+```
+or
+```rb
+>> rr = Roundrobin.new("redis://:p4ssw0rd@10.0.1.1:6380/15")
+```
+Now you can ask for the next item (in a Round-Robin logic)
+```rb
+>> rr.next(%w(foo bar))
 => "foo"
->> Roundrobin.next(%w(foo bar))
+>> rr.next(%w(foo bar))
 => "bar"
->> Roundrobin.next(%w(foo bar))
+>> rr.next(%w(foo bar))
 => "foo"
 
 >> candidates = [{name: 'John', email: 'john@example.com'}, {name: 'Sara', email: 'sara@example.com'}])
->> Roundrobin.next(candidates) 
+>> rr.next(candidates)
 => {name: 'John', email: 'john@example.com'}
->> Roundrobin.next(candidates)
+>> rr.next(candidates)
 => {name: 'Sara', email: 'sara@example.com'}
->> Roundrobin.next(candidates) 
+>> rr.next(candidates)
 => {name: 'John', email: 'john@example.com'}
 ```
 
@@ -41,13 +54,15 @@ All the data will be persisted to your DB, so you can restart your server, or do
 
 ## Development
 
+```
 $ cd roundrobin
 $ gem build roundrobin.gemspec
 $ gem install ./roundrobin-XXX.gem
+```
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/roundrobin/fork )
+1. Fork it ( https://github.com/archdaily/roundrobin/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)

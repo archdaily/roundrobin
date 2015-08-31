@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Gustavo Garcia", "Sergio Márquez"]
   spec.email         = ["dev@archdaily.com"]
   spec.summary       = "Iterates over an array with a persisted Round-Robin algorithm"
-  spec.description   = "Set the array in a yml file and then just ask for the next item"
-  spec.homepage      = "http://github.com/pnet/roundrobin"
+  spec.description   = "Just ask for the next item of a specified array. It will be persisted to a Redis DB"
+  spec.homepage      = "http://github.com/archdaily/roundrobin"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
