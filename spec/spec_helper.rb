@@ -1,4 +1,6 @@
 require 'bundler/setup'
+require 'fakeredis/rspec'
+
 Bundler.setup
 
 require 'roundrobin'
