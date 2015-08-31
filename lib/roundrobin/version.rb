@@ -1,3 +1,3 @@
-module Roundrobin
-  VERSION = "0.0.2"
+class Roundrobin
+  VERSION = "0.0.3"
 end

@@ -1,16 +1,21 @@
 require "roundrobin/version"
+require 'digest/sha1'
 
-module Roundrobin
-  require 'digest/sha1'
+class Roundrobin
 
-  def initializer(redis_connection)
-    @redis = Redis.new(:url => redis_connection)
+  def initializer(redis_conn = nil)
+    @redis = redis_conn.nil? ? Redis.new : Redis.new(url: redis_conn)
   end
 
   def next(candidates)
     return nil unless candidates.is_a?(Array)
     identifier = get_hash(candidates)
-    iterator = @redis.get(identifier) || 0
+    iterator = @redis.get(identifier)
+    if iterator.nil?
+      iterator   = -1 
+    else
+      iterator = iterator.to_i
+    end
     iterator += 1
     iterator = 0 if iterator >= candidates.length
     @redis.set(identifier, iterator)
