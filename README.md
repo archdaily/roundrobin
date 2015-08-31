@@ -39,6 +39,12 @@ Or install it yourself as:
 
 All the data will be persisted to your DB, so you can restart your server, or do this in multiple threads and the results will be the same: you will be using the Round Robin algorith.
 
+## Development
+
+$ cd roundrobin
+$ gem build roundrobin.gemspec
+$ gem install ./roundrobin-XXX.gem
+
 ## Contributing
 
 1. Fork it ( https://github.com/[my-github-username]/roundrobin/fork )
