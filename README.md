@@ -1,4 +1,5 @@
 # RoundRobin
+[![Build Status](https://travis-ci.org/archdaily/roundrobin.svg?branch=master)](https://travis-ci.org/archdaily/roundrobin)
 
 Add a Round-Robin based process to your flow.
 
