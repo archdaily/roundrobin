@@ -34,5 +34,9 @@ RSpec.describe Roundrobin, :type => :model do
     it 'works with integers' do
       expect(rr.next([1,2,3])).to eq(1)
     end
+
+    it "returns nil for a empty array" do
+      expect(rr.next([])).to be_nil
+    end
   end
 end

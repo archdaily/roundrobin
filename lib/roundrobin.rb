@@ -9,7 +9,7 @@ class Roundrobin
   end
 
   def next(candidates)
-    return nil unless candidates.is_a?(Array)
+    return nil unless candidates.is_a?(Array) and candidates.length > 0
     identifier = get_hash(candidates)
     iterator = @redis.get(identifier)
     if iterator.nil?
